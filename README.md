@@ -26,3 +26,5 @@ The seed to generate the first board is controlled by a "pen".
 - `a` : Move pen left
 - `s` : Move pen down
 - `d` : Move pen right
+---
+<img src="doc/recording.gif" alt="alt text" style="width: 100%;"/>
