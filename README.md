@@ -4,7 +4,7 @@
 <!-- ![Recording](doc/recording.gif) -->
 
 ## About
-Simple implementation of the Conway's game of life.
+Simple implementation of the Conway's Game of Life.
 
 ## Use
 `echo "sssssdddddxddddddd" | ./a.out <height> <width> <iterations> [<refresh-time>]`
