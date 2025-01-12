@@ -36,7 +36,7 @@ void  board_erase(int time)
   system("clear");
 }
 
-void  board_display(t_board* b, int time)
+void  board_display(t_board* b)
 {
   char  alive = 'o';
   char  dead = ' ';
@@ -53,7 +53,6 @@ void  board_display(t_board* b, int time)
     if (i != b->height - 1)
       putchar('\n');
   }
-  board_erase(time);
 }
 
 int** board_new(int width, int height)
@@ -100,13 +99,13 @@ int is_in_bounds(int x, int y, t_board* b)
   return(0);
 }
 
-void  board_free(int width, int height, int** board)
+void  board_free(t_board* b)
 {
-  for (int i = 0; i != height; ++i)
+  for (int i = 0; i != b->height; ++i)
   {
-    free(board[i]);
+    free(b->board[i]);
   }
-  free(board);
+  free(b->board);
 };
 
 // --- Game of life ---
@@ -157,7 +156,7 @@ void  next_iteration(t_board* b)
     }
   }
 
-  board_free(b->width, b->height, b->board);
+  board_free(b);
   b->board = new_board;
 }
 
@@ -198,15 +197,17 @@ int main(int argc, char** argv)
 
   // Display first board
   board_erase(refresh);
-  board_display(&b, refresh);
+  board_display(&b);
+  board_erase(refresh);
 
   // Display all iterations
   for (int i = 0; i != iterations; ++i)
   {
     next_iteration(&b);
-    board_display(&b, refresh);
+    board_display(&b);
+    board_erase(refresh);
   }
 
-  board_free(b.width, b.height, b.board);
+  board_free(&b);
   return (0);
 }

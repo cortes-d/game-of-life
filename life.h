@@ -21,12 +21,12 @@ void  pen_move(t_pen* p, int shift_x, int shift_y, t_board* b); // Move pen
 
 // --- Board ---
 void  board_erase(int time);                                    // Clear screen some time (in ms)
-void  board_display(t_board* b, int time);                      // Display board for some time (in ms)
+void  board_display(t_board* b);                                // Display board
 int** board_new(int width, int height);                         // New empty board
 void  board_init(t_pen* p, t_board* b);
 
 int   is_in_bounds(int x, int y, t_board* b);                   // Check if coordinates are in the board
-void  board_free(int width, int height, int** board);           // Free memory
+void  board_free(t_board* b);                                   // Free memory
 
 // --- Game of life ---
 int   count_neighbors(int origin_x, int origin_y, t_board* b);  // Count alive neighbors
