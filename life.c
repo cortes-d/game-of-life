@@ -50,8 +50,7 @@ void  board_display(t_board* b)
       else
         putchar(dead);
     }
-    if (i != b->height - 1)
-      putchar('\n');
+    putchar('\n');
   }
 }
 
