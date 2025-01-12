@@ -1,5 +1,7 @@
 # game-of-life
 
+![Recording](doc/recording.gif)
+
 ## About
 Simple implementation of the Conway's game of life.
 
