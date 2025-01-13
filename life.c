@@ -187,6 +187,9 @@ int main(int argc, char** argv)
   // General parameters
   int iterations = atoi(argv[3]);
 
+  if (b.height < 1 || b.width < 1 || iterations < 1)
+	return (1);
+
   int refresh = 1000;
   if (argc == 5)
     refresh = atoi(argv[4]);
